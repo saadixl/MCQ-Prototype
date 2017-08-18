@@ -1,0 +1,13 @@
+.mcq-nav {
+  border-radius: 0;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.question-block {
+  margin-bottom: 20px;
+}
+
+.question-definition {
+  font-weight: bold;
+}

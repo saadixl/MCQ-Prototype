@@ -17,21 +17,20 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#">MCQ Prototype</a>
         </div>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a>Open exam creator</a></li>
-          </ul>
         </div>
       </nav>
       <div class="row">
         <div class="col-md-6">
+          <h3>Sample exam</h3>
           <div class="mcq-exam-arena"></div>
           <div class="mcq-exam-controls">
-            <button class="btn btn-lg btn-success submit-btn">Submit</button>
+            <button class="btn btn-xs btn-success submit-btn">Click here to submit your exam</button>
             <p class="result"></p>
           </div>
         </div>
-        <div class="col-md-6">
-          <strong>Exam creator</strong>
+        <div class="col-md-6 exam-creator-cont">
+          <h3>Exam generator</h3>
+          <button class="btn btn-primary btn-xs generate-btn">Click here to generate a new exam</button>
           <textarea class="exam-textarea">
 [
   {
@@ -54,7 +53,6 @@
   }
 ]
           </textarea>
-          <button class="btn btn-primary generate-btn">Generate new exam</button>
         </div>
       </div>
     </div>
@@ -62,6 +60,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
     <script src="assets/main.js"></script>
   </body>
 </html>

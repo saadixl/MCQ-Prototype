@@ -24,7 +24,8 @@ function generateNewExam(examResource) {
       var optionItem = item.options[j];
       answerOptions+= "<div class='radio'><label><input type='radio' name='optradio"+i+"' value='"+optionItem+"'>"+optionItem+"</label></div>";
     }
-    $(".mcq-exam-arena").append("<div class='question-block'><div class='question-definition'>"+item.questionDef+"</div><div class='answer-options'>"+answerOptions+"</div></div>");
+    var index = parseInt(i)+1;
+    $(".mcq-exam-arena").append("<div class='question-block'><div class='question-definition'>"+index+". "+item.questionDef+"</div><div class='answer-options'>"+answerOptions+"</div></div>");
   }
 }
 
@@ -51,6 +52,10 @@ function match(answers) {
     }
     totalMarks+= item.point;
   }
-  var resultString = "You have got "+marks+" out of "+totalMarks+". You answered "+correctCount+" out of "+examResource.length+" questions. And your percentile is "+Math.round(marks/totalMarks*100)+"%";
+  var resultString = "Marks: "+marks+" out of "+totalMarks+". Correct answers: "+correctCount+" out of "+examResource.length+". Percentile: "+Math.round(marks/totalMarks*100)+"%";
   $(".result").text(resultString);
+  bootbox.alert({
+   message: resultString,
+   size: 'small'
+  });
 }

@@ -13,21 +13,48 @@
   <body>
     <div class="container-fluid">
       <nav class="mcq-nav navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-              MCQ Prototype
-            </a>
-          </div>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">MCQ Prototype</a>
+        </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>Open exam creator</a></li>
+          </ul>
         </div>
       </nav>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="mcq-exam-arena"></div>
           <div class="mcq-exam-controls">
             <button class="btn btn-lg btn-success submit-btn">Submit</button>
             <p class="result"></p>
           </div>
+        </div>
+        <div class="col-md-6">
+          <strong>Exam creator</strong>
+          <textarea class="exam-textarea">
+[
+  {
+    "questionDef": "What is the capital of Bangladesh?",
+    "options": ["Dhaka", "Sylhet", "Chittagong"],
+    "point": 1,
+    "answer": "Dhaka"
+  },
+  {
+    "questionDef": "What is the capital of India?",
+    "options": ["Dhaka", "Chennai", "Mumbai", "New Delhi"],
+    "point": 2,
+    "answer": "New Delhi"
+  },
+  {
+    "questionDef": "Where is Iceland located?",
+    "options": ["Europe", "Asia"],
+    "point": 0.5,
+    "answer": "Europe"
+  }
+]
+          </textarea>
+          <button class="btn btn-primary generate-btn">Generate new exam</button>
         </div>
       </div>
     </div>

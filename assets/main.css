@@ -16,3 +16,11 @@
   margin-top: 20px;
   color: red;
 }
+
+.exam-textarea {
+  width: 100% !important;
+  min-height: 480px;
+  outline: none;
+  border: 1px solid #ddd !important;
+  font-family: monospace;
+}

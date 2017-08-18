@@ -1,32 +1,22 @@
-var examResource = [
-  {
-    questionDef: "What is the capital of Bangladesh?",
-    options: ['Dhaka', 'Sylhet', 'Chittagong'],
-    point: 1,
-    answer: 'Dhaka'
-  },
-  {
-    questionDef: "What is the capital of India?",
-    options: ['Dhaka', 'Chennai', 'Mumbai', 'New Delhi'],
-    point: 2,
-    answer: 'New Delhi'
-  },
-  {
-    questionDef: "Where is Iceland located?",
-    options: ['Europe', 'Asia'],
-    point: 0.5,
-    answer: 'Europe'
-  }
-];
+var examResource = [];
 
 // Ready function
 $(document).ready(function() {
-  generateNewExam(examResource);
+  generate();
   $(".submit-btn").click(examine);
+  $(".generate-btn").click(generate);
 });
+
+function generate() {
+  var textAreaVal = $(".exam-textarea").val();
+  examResource = JSON.parse(textAreaVal);
+  generateNewExam(examResource);
+}
 
 // Exam generation function
 function generateNewExam(examResource) {
+  $(".mcq-exam-arena").empty();
+  $(".result").empty();
   for(var i in examResource) {
     var item = examResource[i];
     var answerOptions = "";

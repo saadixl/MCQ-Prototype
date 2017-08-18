@@ -51,11 +51,16 @@ function examine() {
 // Match function
 function match(answers) {
   var marks = 0;
+  var correctCount = 0;
+  var totalMarks = 0;
   for(var k in examResource) {
     var item = examResource[k];
     if(item.answer === answers[k]) {
+      correctCount++;
       marks+= item.point;
     }
+    totalMarks+= item.point;
   }
-  console.log("Marks: ", marks);
+  var resultString = "You have got "+marks+" out of "+totalMarks+". You answered "+correctCount+" out of "+examResource.length+" questions. And your percentile is "+Math.round(marks/totalMarks*100)+"%";
+  $(".result").text(resultString);
 }

@@ -11,3 +11,8 @@
 .question-definition {
   font-weight: bold;
 }
+
+.mcq-exam-controls p.result{
+  margin-top: 20px;
+  color: red;
+}

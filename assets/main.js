@@ -1,21 +1,21 @@
 var examResource = [
   {
     questionDef: "What is the capital of Bangladesh?",
-    options: ['Dhaka', 'Sylhet', 'Comilla', 'Chittagong'],
-    weight: 2,
-    answerIndex: 0
+    options: ['Dhaka', 'Sylhet', 'Chittagong'],
+    point: 1,
+    answer: 'Dhaka'
   },
   {
     questionDef: "What is the capital of India?",
     options: ['Dhaka', 'Chennai', 'Mumbai', 'New Delhi'],
-    weight: 2,
-    answerIndex: 3
+    point: 2,
+    answer: 'New Delhi'
   },
   {
     questionDef: "Where is Iceland located?",
     options: ['Europe', 'Asia'],
-    weight: 0.5,
-    answerIndex: 0
+    point: 0.5,
+    answer: 'Europe'
   }
 ];
 
@@ -32,7 +32,7 @@ function generateNewExam(examResource) {
     var answerOptions = "";
     for(var j in item.options) {
       var optionItem = item.options[j];
-      answerOptions+= "<div class='radio'><label><input type='radio' name='optradio'>"+optionItem+"</label></div>";
+      answerOptions+= "<div class='radio'><label><input type='radio' name='optradio"+i+"' value='"+optionItem+"'>"+optionItem+"</label></div>";
     }
     $(".mcq-exam-arena").append("<div class='question-block'><div class='question-definition'>"+item.questionDef+"</div><div class='answer-options'>"+answerOptions+"</div></div>");
   }
@@ -40,5 +40,22 @@ function generateNewExam(examResource) {
 
 // Examine function
 function examine() {
-  alert("YO");
+  var answers = [];
+  $(".mcq-exam-arena .question-block").each(function() {
+    var chosenAnswer = $(this).find(".answer-options input[type='radio']:checked").val();
+    answers.push(chosenAnswer);
+  });
+  match(answers);
+}
+
+// Match function
+function match(answers) {
+  var marks = 0;
+  for(var k in examResource) {
+    var item = examResource[k];
+    if(item.answer === answers[k]) {
+      marks+= item.point;
+    }
+  }
+  console.log("Marks: ", marks);
 }
